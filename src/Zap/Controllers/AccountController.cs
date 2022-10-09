@@ -25,7 +25,7 @@ namespace Zap.Controllers
                 return View();
 
             // TODO: Create account in database here.
-            return RedirectToPage("/Home/Index");
+            return Redirect("/Home/Index");
         }
     }
 }
