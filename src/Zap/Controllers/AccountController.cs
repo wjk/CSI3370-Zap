@@ -11,23 +11,21 @@ namespace Zap.Controllers
 {
     public class AccountController : Controller
     {
-        [Route("signup")]
+        [Route("Account/Login")]
         public IActionResult Signup()
         {
             return View();
         }
 
-        [Route("signup")]
+        [Route("Account/Login")]
         [HttpPost]
         public IActionResult Signup(SignUpUserModel userModel)
         {
-            if (ModelState.IsValid)
-            {
-                // write your code
+            if (!ModelState.IsValid)
+                return View();
 
-                ModelState.Clear();
-            }
-            return View();
+            // TODO: Create account in database here.
+            return RedirectToPage("/Home/Index");
         }
     }
 }
