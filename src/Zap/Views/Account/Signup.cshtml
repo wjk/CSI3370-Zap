@@ -10,7 +10,8 @@
 
 <div class="row">
     <div class="col-xs-12 col-md-8">
-        <form asp-action="Signup" class="form-horizontal">
+        <form asp-action="Signup" class="form-horizontal form-block">
+            <div class="form-block-content">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -41,8 +42,9 @@
                 <input asp-for="ConfirmPassword" class="form-control" type="password" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
+            </div>
 
-            <div class="form-group">
+            <div class="form-group form-block-footer">
                 <input type="submit" value="Sign Up" class="btn btn-primary" asp-action="Login" asp-controller="Account" />
             </div>
         </form>
