@@ -27,6 +27,23 @@ namespace Zap.Controllers
             // TODO: Create account in database here.
             return Redirect("/Home/Index");
         }
+
+        [Route("Account/SignIn")]
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        [Route("Account/SignIn")]
+        [HttpPost]
+        public IActionResult SignIn(SignInModel model)
+        {
+            if (!ModelState.IsValid)
+                return View();
+            
+            // TODO: Check account credentials against database here.
+            return Redirect("/Home/Index");
+        }
     }
 }
 
