@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+@model Zap.Models.SignInModel
+
+<header id="header-background">
+    <h1 class="display-4">Login</h1>
+</header>
+
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <form asp-action="Login" class="form-horizontal form-block">
+            <div class="form-block-content">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" type="text" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group form-block-footer">
+                <input type="submit" value="Login" class="btn btn-primary" asp-action="Login" asp-controller="Account" />
+            </div>
+        </form>
+    </div>
+</div>
