@@ -17,5 +17,7 @@ namespace Zap.Models
         [Display(Name = "Password:")]
         [DataType(DataType.Password)]
         public string? Password {get; set;}
+
+        public bool IsValid { get; set; } = true;
     }
 }

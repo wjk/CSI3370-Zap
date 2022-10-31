@@ -44,3 +44,13 @@ body {
   border-style: solid;
   border-color: var(--bs-gray-600);
 }
+
+.screen-reader-only {
+    display: none;
+}
+
+@media speech {
+    .screen-reader-only {
+        display: initial;
+    }
+}

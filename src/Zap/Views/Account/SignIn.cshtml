@@ -8,6 +8,14 @@
     <h1 class="display-4">Login</h1>
 </header>
 
+@if (!Model.IsValid)
+{
+    <p id="login-error-box">
+        <span class="screen-reader-only">Error:</span>
+        Your email address and/or password was not recognized.
+    </p>
+}
+
 <div class="row">
     <div class="col-xs-12 col-md-8">
         <form asp-action="SignIn" class="form-horizontal form-block">

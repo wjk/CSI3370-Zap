@@ -1,3 +1,5 @@
+global using Zap.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +7,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddTransient<Zap.Services.SessionAccess>();
+builder.Services.AddTransient<SessionAccess>();
+builder.Services.AddTransient<DatabaseConnection>();
 
 builder.Services.AddSession(options =>
 {
@@ -28,6 +31,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

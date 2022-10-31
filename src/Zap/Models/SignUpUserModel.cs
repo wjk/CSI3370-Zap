@@ -31,5 +31,13 @@ namespace Zap.Models
         [Display(Name = "Confirm Password:")]
         [DataType(DataType.Password)]
         public string? ConfirmPassword {get; set;}
+
+        public enum ActionState
+        {
+            OK,
+            DuplicateUserName,
+        }
+
+        public ActionState State { get; set; } = ActionState.OK;
     }
 }
