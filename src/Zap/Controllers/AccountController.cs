@@ -73,7 +73,7 @@ namespace Zap.Controllers
         }
 
         [Route("Account/SignIn")]
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult SignIn(SignInModel model)
         {
             if (!ModelState.IsValid)
