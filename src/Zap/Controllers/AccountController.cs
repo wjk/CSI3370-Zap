@@ -79,7 +79,7 @@ namespace Zap.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            Account? account = Account.LookUp(model.Email, _databaseConnection);
+            Account? account = Account.LookUp(model.Email!, _databaseConnection);
             if (account == null)
             {
                 model.IsValid = false;
