@@ -20,12 +20,13 @@ namespace Zap.Controllers
             this._databaseConnection = databaseConnection;
         }
 
-        [Route("Account/Login")]
+        [Route("Account/SignUp")]
         public IActionResult Signup()
         {
             return View();
         }
 
+        [Route("Account/SignUp")]
         public IActionResult Signup(SignUpUserModel.ActionState state)
         {
             if (state == SignUpUserModel.ActionState.OK)
@@ -35,7 +36,7 @@ namespace Zap.Controllers
             return View(model);
         }
 
-        [Route("Account/Login")]
+        [Route("Account/SignUp")]
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Signup(SignUpUserModel userModel)
         {
