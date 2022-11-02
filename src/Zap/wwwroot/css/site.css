@@ -27,6 +27,28 @@ body {
     border-color: var(--bs-gray-600);
     border-width: 1px 1px 0 1px;
     background-color: var(--bs-gray-200);
+}
+
+.form-block-content:nth-child(1) {
+    border-radius: 5pt 5pt 0 0;
+}
+
+.form-block-content.nofooter {
+    border-radius: 0 0 5pt 5pt;
+    border-width: 1px;
+}
+
+.form-block-content.nofooter:nth-child(1) {
+    border-radius: 5pt;
+    border-width: 1px;
+}
+
+.form-block-content-previous {
+    padding: 15px;
+    border-style: solid;
+    border-color: var(--bs-gray-600);
+    border-width: 1px 1px 0 1px;
+    background-color: antiquewhite;
     border-radius: 5pt 5pt 0 0;
 }
 
