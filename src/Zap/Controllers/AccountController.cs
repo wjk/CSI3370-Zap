@@ -27,26 +27,17 @@ namespace Zap.Controllers
         }
 
         [Route("Account/SignUp")]
-        public IActionResult Signup(SignUpUserModel.ActionState state)
-        {
-            if (state == SignUpUserModel.ActionState.OK)
-                return RedirectToAction("Signup");
-
-            SignUpUserModel model = new SignUpUserModel() { State = state };
-            return View(model);
-        }
-
-        [Route("Account/SignUp")]
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Signup(SignUpUserModel userModel)
         {
             if (!ModelState.IsValid)
-                return View();
+                return View(userModel);
 
             Account? account = Account.LookUp(userModel.Email!, _databaseConnection);
             if (account != null)
             {
-                return RedirectToAction("Signup", SignUpUserModel.ActionState.DuplicateUserName);
+                userModel.State = SignUpUserModel.ActionState.DuplicateUserName;
+                return View(userModel);
             }
 
             account = new Account()
