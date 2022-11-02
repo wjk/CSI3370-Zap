@@ -102,6 +102,7 @@ namespace Zap.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Remove("AuthenticatedUser");
+            HttpContext.Session.Remove("AuthenticatedUserFriendly");
             HttpContext.Session.Remove("Flowchart");
             return LocalRedirect("/");
         }
