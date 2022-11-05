@@ -5,7 +5,7 @@
     {
         <form class="form-inline" asp-controller="Account" asp-action="LogOut">
             @* TODO: This text is displayed above the logout button. It should be to the left. *@
-            Hello <b>@Session.Session.GetString("AuthenticatedUserFriendly")</b>.
+            Hello <b>@Html.Encode(Session.Session.GetString("AuthenticatedUserFriendly"))</b>.
             <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
         </form>
     }
