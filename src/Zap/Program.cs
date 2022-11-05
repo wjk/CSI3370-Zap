@@ -9,6 +9,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<SessionAccess>();
 builder.Services.AddTransient<DatabaseConnection>();
+builder.Services.AddSingleton<FlowchartContainer>();
 
 builder.Services.AddSession(options =>
 {

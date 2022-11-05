@@ -1,0 +1,48 @@
+@model PrimaryModel
+@inject SessionAccess SessionAccess
+
+@{
+    ViewData["Title"] = "Chatbot";
+}
+
+<div class="form-block">
+    @if (Model.Steps.Any())
+    {
+        <div class="form-block-content-previous">
+            @foreach (var step in Model.Steps)
+            {
+                <p>
+                    @Html.Encode(step.SummaryText);
+                </p>
+                @if (!string.IsNullOrEmpty(step.UserResponseText))
+                {
+                    <p class="right-align">
+                        @Html.Encode(step.UserResponseText);
+                    </p>
+                }
+            }
+        </div>
+    }
+    
+    <div class="form-block-content">
+        <p>
+            @Html.Encode(Model.LastStep.PromptText);
+        </p>
+    </div>
+    
+    <div class="form-block-footer">
+        @foreach (var action in Model.LastStep.Actions)
+        {
+            <p>
+                <form asp-action="Chatbot" asp-controller="Home" asp-route-actionName="@action.Identifier" method="post">
+                    <input type="submit" value="@action.UserVisibleText" class="btn btn-primary">
+                </form>
+            </p>
+        }
+    </div>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

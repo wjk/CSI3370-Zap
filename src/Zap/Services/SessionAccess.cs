@@ -15,4 +15,10 @@ public sealed class SessionAccess
     {
         return Session.GetString("AuthenticatedUser") != null;
     }
+
+    public string? FlowchartKey
+    {
+        get => Session.GetString("Flowchart");
+        set => Session.SetString("Flowchart", value ?? string.Empty);
+    }
 }

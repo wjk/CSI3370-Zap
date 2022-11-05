@@ -65,6 +65,10 @@ body {
     display: none;
 }
 
+.right-align {
+    text-align: right;
+}
+
 @media speech {
     .screen-reader-only {
         display: initial;
