@@ -54,7 +54,7 @@ namespace Zap.Controllers
             
             HttpContext.Session.SetString("AuthenticatedUser", userModel.Email!);
             HttpContext.Session.SetString("AuthenticatedUserFriendly", account.FirstName!);
-            return Redirect("/Home/Index");
+            return LocalRedirect("/Home/Index");
         }
 
         [Route("Account/SignIn")]
