@@ -8,7 +8,7 @@ public sealed class Account
     {
         using MySqlConnection conn = connection.Open();
         using MySqlCommand command = new MySqlCommand("SELECT * FROM USER WHERE EMAIL = @email", conn);
-        command.Parameters.Add(new MySqlParameter("@email", email));
+        command.Parameters.Add("@email", email);
 
         using var results = command.ExecuteReader();
         results.Read();
@@ -38,10 +38,10 @@ public sealed class Account
         using MySqlConnection conn = connection.Open();
         using MySqlCommand command = new MySqlCommand("INSERT INTO USER (EMAIL, FIRST_NAME, LAST_NAME, HASHED_PASSWORD)" +
                                                       "VALUES (@email, @fname, @lname, @pwd)", conn);
-        command.Parameters.Add(new MySqlParameter("email", EmailAddress));
-        command.Parameters.Add(new MySqlParameter("fname", FirstName));
-        command.Parameters.Add(new MySqlParameter("lname", LastName));
-        command.Parameters.Add(new MySqlParameter("pwd", HashedPassword));
+        command.Parameters.Add("email", EmailAddress);
+        command.Parameters.Add("fname", FirstName);
+        command.Parameters.Add("lname", LastName);
+        command.Parameters.Add("pwd", HashedPassword);
 
         command.ExecuteNonQuery();
     }
