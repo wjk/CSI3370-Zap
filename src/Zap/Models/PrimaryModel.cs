@@ -2,7 +2,7 @@ namespace Zap.Models;
 
 public sealed class PrimaryModel
 {
-    private FlowchartContainer _flowchartContainer;
+    private readonly FlowchartContainer _flowchartContainer;
     
     public PrimaryModel(FlowchartContainer container, string stackId)
     {
