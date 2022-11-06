@@ -3,8 +3,6 @@ namespace Zap.Models;
 public abstract class FlowchartStepBase
 {
     public abstract string PromptText { get; }
-
-    public abstract string SummaryText { get; }
     
     public abstract string? UserResponseText { get; }
 

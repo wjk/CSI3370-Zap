@@ -9,15 +9,15 @@
     @if (Model.Steps.Any())
     {
         <div class="form-block-content-previous">
-            @foreach (var step in Model.Steps)
+            @foreach (var step in Model.PreviousSteps)
             {
                 <p>
-                    @Html.Encode(step.SummaryText);
+                    @Html.Encode(step.PromptText)
                 </p>
                 @if (!string.IsNullOrEmpty(step.UserResponseText))
                 {
                     <p class="right-align">
-                        @Html.Encode(step.UserResponseText);
+                        @Html.Encode(step.UserResponseText)
                     </p>
                 }
             }
@@ -26,7 +26,7 @@
     
     <div class="form-block-content">
         <p>
-            @Html.Encode(Model.LastStep.PromptText);
+            @Html.Encode(Model.LastStep.PromptText)
         </p>
     </div>
     
@@ -42,7 +42,4 @@
     </div>
 </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a asp-action="Chatbot" asp-controller="Home" class="btn">Start Over</a>

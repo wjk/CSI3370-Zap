@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Zap.Models;
+using Zap.Models.Steps;
 
 namespace Zap.Controllers;
 
@@ -31,17 +32,23 @@ public class HomeController : Controller
     public IActionResult Chatbot()
     {
         PrimaryModel model = new PrimaryModel(_flowchartContainer, _flowchartContainer.CreateNewStepStack());
+        _sessionAccess.FlowchartKey = model.FlowchartKey;
+        _flowchartContainer.PushStep(model.FlowchartKey, new WelcomeStep());
+        _flowchartContainer.PushStep(model.FlowchartKey, new InitialStep());
         return View(model);
     }
 
     [Route("/Home/Chatbot/{actionName}")]
     [HttpPost]
-    public IActionResult Chatbot(PrimaryModel model, string actionName)
+    public IActionResult Chatbot(string actionName)
     {
+        PrimaryModel model = new PrimaryModel(_flowchartContainer, _sessionAccess.FlowchartKey);
+
         var lastStep = model.LastStep;
         var action = lastStep.Actions.Single(a => a.Identifier == actionName);
         var newStep = action.Implementation();
         _flowchartContainer.PushStep(model.FlowchartKey, newStep);
+
         return View(model);
     }
 
