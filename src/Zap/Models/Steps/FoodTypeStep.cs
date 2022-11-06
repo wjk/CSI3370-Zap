@@ -21,7 +21,7 @@ public class FoodTypeStep : FlowchartStepBase
     private FlowchartStepBase GroceriesAction()
     {
         _userResponseText = "Groceries";
-        return new StubStep();
+        return new GroceryStoreStep();
     }
 
     private FlowchartStepBase FastFoodAction()
