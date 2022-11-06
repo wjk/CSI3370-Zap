@@ -21,6 +21,7 @@ public sealed class PrimaryModel
         get
         {
             var steps = _flowchartContainer.GetStepStack(FlowchartKey);
+            if (steps.Count == 1) return Array.Empty<FlowchartStepBase>();
 
             int count = steps.Count - 1;
             FlowchartStepBase[] newSteps = new FlowchartStepBase[count];
