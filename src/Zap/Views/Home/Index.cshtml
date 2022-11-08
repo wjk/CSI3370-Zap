@@ -1,8 +1,86 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+
+    <title>Zap Chatbot</title>
+    <link rel="stylesheet" href="~/css/homepage.css">
+</head>
+
+<body>
+<section class="header">
+    <nav>
+        <a asp-controller="Home" asp-action="Index">
+            <img src="~/images/logo.png" alt="Zap Chatbot logo">
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Account" asp-action="SignIn">Sign In</a></li>
+            </ul>
+        </div>
+        
+        <i class="fa fa-times" onclick="showMenu()"></i>
+    </nav>
+    
+    <div class="text-box">
+        <h1>Providing Services to Elders</h1>
+        <p>
+            Here at Zap we offer many services for those who may need some extra assistance.
+        </p>
+        
+        <a class="hero-btn">Visit Us to Learn More</a>
+    </div>
+</section>
+
+<section class="services">
+    <h1>Services We Offer</h1>
+    <p>
+        We offer Transportation, Healthcare, and Food. This may include taking you to and from a certain place,
+        Providing care to you, and Delivering Food in the form of groceries or food that has already been prepared.
+    </p>
+    
+    <div class="row">
+        <div class="services-col">
+            <h3>Transportation</h3>
+            <p>
+                We will take our customers to and from the locations that they require to go.
+            </p>
+        </div>
+        
+        <div class="services-col">
+            <h3>Groceries</h3>
+            <p>
+                We will bring groceries to our customers from the store if they do not wish to go.
+            </p>
+        </div>
+        
+        <div class="services-col">
+            <h3>Health Care</h3>
+            <p>
+                We will provide care for customers whether they are not having a good day or if they are in need
+                of some assistance for the day.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu() { 
+    delete navLinks.style.display;
+}
+
+function hideMenu() {
+    navLinks.style.display = 'none';
+}
+</script>
+</body>
+</html>
