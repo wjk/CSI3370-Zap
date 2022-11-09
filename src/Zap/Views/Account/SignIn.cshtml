@@ -19,17 +19,17 @@
 <div class="row">
     <div class="col-xs-12 col-md-8">
         <form asp-action="SignIn" class="form-horizontal form-block">
-            <div class="form-block-content">
+            <div class="form-block-content" id="form">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" type="text" />
+                    <input asp-for="Email" class="form-control" type="text" id="emailEntry" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" class="form-control" type="password" />
+                    <input asp-for="Password" class="form-control" type="password" id="passwordEntry" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
