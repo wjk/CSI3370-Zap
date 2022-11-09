@@ -20,18 +20,18 @@ public class GroceryStoreStep : FlowchartStepBase
     private FlowchartStepBase KrogerAction()
     {
         _userResponseText = "Kroger";
-        return new StubStep();
+        return new GroceryDeliveryStep("Kroger");
     }
 
     private FlowchartStepBase MeijerAction()
     {
         _userResponseText = "Meijer";
-        return new StubStep();
+        return new GroceryDeliveryStep("Meijer");
     }
 
     private FlowchartStepBase WalmartAction()
     {
         _userResponseText = "Walmart";
-        return new StubStep();
+        return new GroceryDeliveryStep("Walmart");
     }
 }
