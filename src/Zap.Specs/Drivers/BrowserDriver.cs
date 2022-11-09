@@ -12,7 +12,10 @@ namespace Zap.Specs.Drivers
 {
     public class BrowserDriver
     {
-        private readonly IWebDriverFactory _driverFactory;
+        public static readonly BrowserDriver CurrentDriver = new BrowserDriver();    
+        
+        private IWebDriverFactory? _driverFactory;
+        private IWebDriver? _driver;
         
         public BrowserDriver()
         {
@@ -20,10 +23,22 @@ namespace Zap.Specs.Drivers
                 .GetDefaultServiceCollection(new DriverPath("/usr/bin")).BuildServiceProvider();
             _driverFactory = serviceProvider.GetRequiredService<IWebDriverFactory>();
         }
-        
+
         public IWebDriver CreateWebDriver()
         {
-            return _driverFactory.GetWebDriver(Browser.Safari);
+            if (_driverFactory == null)
+                throw new InvalidOperationException("Driver factory was disposed");
+            
+            if (_driver == null)
+                _driver = _driverFactory.GetWebDriver(Browser.Safari);
+
+            return _driver;
+        }
+
+        public void DisposeDriverFactory()
+        {
+            _driver?.Dispose();
+            _driverFactory?.Dispose();
         }
     }
 }

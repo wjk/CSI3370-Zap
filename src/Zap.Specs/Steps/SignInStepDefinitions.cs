@@ -8,20 +8,14 @@ using Zap.Specs.PageObjects;
 namespace Zap.Specs.Steps;
 
 [Binding]
-public class SignInStepDefinitions : IDisposable
+public class SignInStepDefinitions
 {
     private readonly IWebDriver _driver;
     private SignInPageObject? _pageObject;
 
     public SignInStepDefinitions()
     {
-        var factory = new BrowserDriver();
-        _driver = factory.CreateWebDriver();
-    }
-
-    public void Dispose()
-    {
-        _driver.Dispose();
+        _driver = BrowserDriver.CurrentDriver.CreateWebDriver();
     }
 
     [Given("the default test user exists")]
