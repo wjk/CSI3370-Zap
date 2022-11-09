@@ -8,5 +8,7 @@ public abstract class FlowchartStepBase
 
     public abstract IList<StepAction> Actions { get; }
 
+    public virtual IReadOnlyList<(string title, string href)> ExternalLinks => Array.Empty<(string, string)>();
+
     public record StepAction(string Identifier, string UserVisibleText, Func<FlowchartStepBase> Implementation);
 }
