@@ -36,31 +36,7 @@ public class SignInPageObject
         SubmitButtonElement.Click();
 
         var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5));
-        wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-        _ = wait.Until(driver =>
-        {
-            IWebElement? element1, element2;
-
-            try
-            {
-                element1 = driver.FindElement(By.Id("login-friendly"));
-            }
-            catch (NoSuchElementException)
-            {
-                element1 = null;
-            }
-
-            try
-            {
-                element2 = driver.FindElement(By.Id("login-error-box"));
-            }
-            catch (NoSuchElementException)
-            {
-                element2 = null;
-            }
-
-            return element1 != null || element2 != null;
-        });
+        wait.UntilAnyElementsAppear("login-friendly", "login-error-box");
     }
 
     public void Initialize()
