@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-xs-12 col-md-8">
         <form asp-action="SignIn" class="form-horizontal form-block">
-            <div class="form-block-content" id="form">
+            <div class="form-block-content">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="form-group form-block-footer">
-                <input type="submit" value="Login" class="btn btn-primary" asp-action="SignIn" asp-controller="Account" />
+                <input id="submit" type="submit" value="Login" class="btn btn-primary" asp-action="SignIn" asp-controller="Account" />
             </div>
         </form>
     </div>
