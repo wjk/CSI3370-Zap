@@ -50,7 +50,7 @@ public class SignInStepDefinitions : IDisposable
             command.Parameters.Add(new MySqlParameter("email", "testuser@example.com"));
             command.Parameters.Add(new MySqlParameter("first", "Unit Test"));
             command.Parameters.Add(new MySqlParameter("last", "Example User"));
-            command.Parameters.Add(new MySqlParameter("password", "AQAAAAEAACcQAAAAEOZlm4EihkZazrGyeSplhVdxShMOc6/bmgxbS95B25/gDI/0pVTvqc9y15rVyKUykg=="));
+            command.Parameters.Add(new MySqlParameter("password", "AQAAAAEAACcQAAAAEGDqJb0uZoc06zehFjYw6yRGX3Xk9IOxLvLjnXDjxC1c7IoSCxT8QQJCbl2DLtpmew=="));
 
             command.ExecuteNonQuery();
         }
@@ -92,7 +92,7 @@ public class SignInStepDefinitions : IDisposable
         Assert.Equal("https://localhost:5001/Home/Chatbot", _driver.Url);
         
         var element = _driver.FindElement(By.Id("login-friendly"));
-        Assert.Equal("Test User", element.Text);
+        Assert.Equal("Unit Test", element.Text);
     }
 
     [Then("the login should fail")]
