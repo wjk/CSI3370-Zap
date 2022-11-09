@@ -4,6 +4,7 @@ public class GroceryLinkStep : FlowchartStepBase
 {
     private readonly string _storeName;
     private readonly string _prompt;
+    private readonly string _storeSite;
 
     public GroceryLinkStep(string storeName, string action)
     {
@@ -16,7 +17,7 @@ public class GroceryLinkStep : FlowchartStepBase
             _ => throw new ArgumentException("Invalid action")
         };
 
-        string storeSite = _storeName switch
+        _storeSite = _storeName switch
         {
             "Kroger" => "Kroger.com",
             "Meijer" => "Meijer.com",
@@ -24,7 +25,7 @@ public class GroceryLinkStep : FlowchartStepBase
             _ => throw new ArgumentException("Invalid storeName")
         };
 
-        _prompt = "Sign in or make an account at " + storeSite + ". During checkout, " +
+        _prompt = "Sign in or make an account at " + _storeSite + ". During checkout, " +
                   "select " + actionText + " during checkout after you have all the items " +
                   "that you want in your cart.";
         if (action == "Delivery") _prompt += " Be sure to select a good time and date for delivery.";
@@ -42,29 +43,15 @@ public class GroceryLinkStep : FlowchartStepBase
         {
             var links = new List<(string, string)>();
 
-            string title, href;
-            switch (_storeName)
+            string href = _storeName switch
             {
-                case "Kroger":
-                    title = "Kroger.com";
-                    href = "https://www.kroger.com/signin?redirectUrl=/";
-                    break;
+                "Kroger" => "https://www.kroger.com/signin?redirectUrl=/",
+                "Meijer" => "https://accounts.meijer.com/manage/Account#/form/user",
+                "Walmart" => "https://www.walmart.com/account/login?vid=oaoh&tid=0&returnUrl=%2F",
+                _ => throw new ArgumentException($"Unrecognized store name '{_storeName}")
+            };
                 
-                case "Meijer":
-                    title = "Meijer.com";
-                    href = "https://accounts.meijer.com/manage/Account#/form/user";
-                    break;
-                
-                case "Walmart":
-                    title = "Walmart.com";
-                    href = "https://www.walmart.com/account/login?vid=oaoh&tid=0&returnUrl=%2F";
-                    break;
-                
-                default:
-                    throw new ArgumentException($"Unrecognized store name '{_storeName}");
-            }
-
-            links.Add((title, href));
+            links.Add((_storeSite, href));
             return links;
         }
     }
