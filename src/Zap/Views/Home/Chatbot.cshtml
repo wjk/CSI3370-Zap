@@ -34,7 +34,7 @@
         @foreach ((string title, string href) in Model.LastStep.ExternalLinks)
         {
             <p>
-                <b><a href="@href">@title</a></b>
+                <b><a class="external-link" href="@href">@title</a></b>
             </p>
         }
         
@@ -42,7 +42,8 @@
         {
             <p>
                 <form asp-action="Chatbot" asp-controller="Home" asp-route-actionName="@action.Identifier" method="post">
-                    <input type="submit" value="@action.UserVisibleText" class="btn btn-primary">
+                    <input type="submit" value="@action.UserVisibleText" class="btn btn-primary"
+                           id="action-@action.Identifier">
                 </form>
             </p>
         }
