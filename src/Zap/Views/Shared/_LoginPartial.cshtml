@@ -3,10 +3,10 @@
 <ul class="navbar-right navbar-nav">
     @if (Session.IsSignedIn())
     {
-        <form class="form-inline" asp-controller="Account" asp-action="LogOut">
+        <form class="nav-item form-inline" asp-controller="Account" asp-action="LogOut">
             @* TODO: This text is displayed above the logout button. It should be to the left. *@
-            Hello <b id="login-friendly">@Html.Encode(Session.Session.GetString("AuthenticatedUserFriendly"))</b>.
-            <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+            <span class="nav-link">Hello <b id="login-friendly">@Html.Encode(Session.Session.GetString("AuthenticatedUserFriendly"))</b>.</span>
+            <button type="submit" class="nav-link btn btn-link">Log Out</button>
         </form>
     }
     else
