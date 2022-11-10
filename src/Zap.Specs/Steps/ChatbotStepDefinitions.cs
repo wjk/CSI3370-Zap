@@ -22,8 +22,11 @@ public class ChatbotStepDefinitions
     [Given("the default test user is logged in")]
     public void GivenTheDefaultTestUserIsLoggedIn()
     {
-        _webDriver.Url = "https://localhost:5001/Account/SignIn";
+        _webDriver.Url = "https://localhost:5001/Account/LogOut";
         WebDriverWait wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5));
+        wait.UntilAllElementsAppear("homepage");
+        
+        _webDriver.Url = "https://localhost:5001/Account/SignIn";
         wait.UntilAllElementsAppear("emailEntry", "passwordEntry", "submit");
 
         var element = _webDriver.FindElement(By.Id("emailEntry"));
