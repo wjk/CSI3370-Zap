@@ -32,6 +32,8 @@ public class ChatbotStepDefinitions
         var element = _webDriver.FindElement(By.Id("emailEntry"));
         element.Clear();
         element.SendKeys("testuser@example.com");
+        
+        Thread.Sleep(1000);
 
         element = _webDriver.FindElement(By.Id("passwordEntry"));
         element.Clear();
@@ -61,6 +63,7 @@ public class ChatbotStepDefinitions
 
         WebDriverWait wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5));
         wait.UntilAllElementsAppear("chatbot");
+        Thread.Sleep(1000);
     }
 
     [Then("the prompt text should be \"(.+)\"")]
