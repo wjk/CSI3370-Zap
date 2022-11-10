@@ -25,9 +25,7 @@
     }
     
     <div class="form-block-content">
-        <p>
-            @Html.Encode(Model.LastStep.PromptText)
-        </p>
+        <p id="prompt-text-p">@Html.Encode(Model.LastStep.PromptText)</p>
     </div>
     
     <div class="form-block-footer">
