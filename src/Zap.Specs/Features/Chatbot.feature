@@ -18,6 +18,6 @@ Scenario: Walmart food delivery interaction
     And action "Food" is selected
     And action "Groceries" is selected
     And action "Walmart" is selected
-    And action "Delivery" is selected
+    And action "Deliver" is selected
     Then the prompt text should be "Sign in or make an account at Walmart.com. During checkout, select delivery during checkout after you have all the items that you want in your cart. Be sure to select a good time and date for delivery."
     And the external link "Walmart.com" exists

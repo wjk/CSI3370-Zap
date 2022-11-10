@@ -188,7 +188,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("action \"Walmart\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-    testRunner.And("action \"Delivery\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("action \"Deliver\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
     testRunner.Then("the prompt text should be \"Sign in or make an account at Walmart.com. During chec" +
