@@ -12,12 +12,12 @@
             @foreach (var step in Model.PreviousSteps)
             {
                 <p>
-                    @Html.Encode(step.PromptText)
+                    @step.PromptText
                 </p>
                 @if (!string.IsNullOrEmpty(step.UserResponseText))
                 {
                     <p class="right-align">
-                        @Html.Encode(step.UserResponseText)
+                        @step.UserResponseText
                     </p>
                 }
             }
@@ -25,7 +25,7 @@
     }
     
     <div class="form-block-content">
-        <p id="prompt-text-p">@Html.Encode(Model.LastStep.PromptText)</p>
+        <p id="prompt-text-p">@Model.LastStep.PromptText</p>
     </div>
     
     <div class="form-block-footer">
