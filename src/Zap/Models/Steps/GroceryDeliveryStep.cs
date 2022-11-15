@@ -3,7 +3,6 @@ namespace Zap.Models.Steps;
 public class GroceryDeliveryStep : FlowchartStepBase
 {
     private readonly string _storeName;
-    private string? _userResponseText;
 
     public GroceryDeliveryStep(string storeName)
     {
@@ -14,8 +13,6 @@ public class GroceryDeliveryStep : FlowchartStepBase
     {
         get => "Do you want to pick up your groceries or have them delivered?";
     }
-    
-    public override string? UserResponseText => _userResponseText;
 
     public override IList<StepAction> Actions => new[]
     {
@@ -25,13 +22,13 @@ public class GroceryDeliveryStep : FlowchartStepBase
 
     private FlowchartStepBase DeliveryAction()
     {
-        _userResponseText = "Delivery";
+        UserResponseText = "Delivery";
         return new GroceryLinkStep(_storeName, "Delivery");
     }
 
     private FlowchartStepBase PickUpAction()
     {
-        _userResponseText = "Pick up in store";
+        UserResponseText = "Pick up in store";
         return new GroceryLinkStep(_storeName, "Pickup");
     }
 }

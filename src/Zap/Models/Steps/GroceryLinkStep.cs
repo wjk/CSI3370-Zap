@@ -33,8 +33,6 @@ public class GroceryLinkStep : FlowchartStepBase
 
     public override string PromptText => _prompt;
 
-    public override string? UserResponseText => string.Empty;
-
     public override IList<StepAction> Actions => Array.Empty<StepAction>();
 
     public override IReadOnlyList<(string title, string href)> ExternalLinks

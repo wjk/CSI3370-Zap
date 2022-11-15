@@ -2,14 +2,11 @@ namespace Zap.Models.Steps;
 
 public class GroceryStoreStep : FlowchartStepBase
 {
-    private string? _userResponseText;
-    
     public override string PromptText
     {
         get => "Where do you want to shop for your groceries?";
     }
 
-    public override string? UserResponseText => _userResponseText;
     public override IList<StepAction> Actions => new[]
     {
         new StepAction("Kroger", "Kroger", KrogerAction),
@@ -19,19 +16,19 @@ public class GroceryStoreStep : FlowchartStepBase
 
     private FlowchartStepBase KrogerAction()
     {
-        _userResponseText = "Kroger";
+        UserResponseText = "Kroger";
         return new GroceryDeliveryStep("Kroger");
     }
 
     private FlowchartStepBase MeijerAction()
     {
-        _userResponseText = "Meijer";
+        UserResponseText = "Meijer";
         return new GroceryDeliveryStep("Meijer");
     }
 
     private FlowchartStepBase WalmartAction()
     {
-        _userResponseText = "Walmart";
+        UserResponseText = "Walmart";
         return new GroceryDeliveryStep("Walmart");
     }
 }

@@ -9,7 +9,5 @@ public class WelcomeStep : FlowchartStepBase
                "in touch with friends and family.";
     }
 
-    public override string? UserResponseText { get; } = null;
-
     public override IList<StepAction> Actions { get; } = Array.Empty<StepAction>();
 }

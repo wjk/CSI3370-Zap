@@ -4,7 +4,7 @@ public abstract class FlowchartStepBase
 {
     public abstract string PromptText { get; }
     
-    public abstract string? UserResponseText { get; }
+    public string? UserResponseText { get; protected set; }
 
     public abstract IList<StepAction> Actions { get; }
 
