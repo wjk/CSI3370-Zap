@@ -17,18 +17,18 @@ public class TransportationKindStep : FlowchartStepBase
     private FlowchartStepBase DatabaseAction()
     {
         UserResponseText = "A database of transportation services";
-        return new StubStep();
+        return new TransportationLeafStep(TransportationLeafStep.Provider.MyRide2);
     }
 
     private FlowchartStepBase LongDistanceAction()
     {
         UserResponseText = "Long-distance medical transportation";
-        return new StubStep();
+        return new TransportationLeafStep(TransportationLeafStep.Provider.TransMedicare);
     }
 
     private FlowchartStepBase NonMedicalAction()
     {
         UserResponseText = "Non-medical transportation";
-        return new StubStep();
+        return new TransportationLeafStep(TransportationLeafStep.Provider.AngelCaret);
     }
 }
