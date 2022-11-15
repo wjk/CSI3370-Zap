@@ -9,12 +9,22 @@ public class InitialStep : FlowchartStepBase
 
     public override IList<StepAction> Actions
     {
-        get => new[] { new StepAction("Food", "Food", FoodAction) };
+        get => new[]
+        {
+            new StepAction("Food", "Food", FoodAction),
+            new StepAction("Transportation", "Transportation", TransportAction),
+        };
     }
 
     private FlowchartStepBase FoodAction()
     {
         UserResponseText = "Food";
         return new FoodTypeStep();
+    }
+
+    private FlowchartStepBase TransportAction()
+    {
+        UserResponseText = "Transportation";
+        return new TransportationKindStep();
     }
 }
