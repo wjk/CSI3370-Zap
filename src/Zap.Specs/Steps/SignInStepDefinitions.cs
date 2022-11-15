@@ -64,6 +64,7 @@ public class SignInStepDefinitions
     {
         ArgumentNullException.ThrowIfNull(_pageObject);
         _pageObject.EnterEmailAddress(emailAddress);
+        Thread.Sleep(100);
     }
 
     [Given("the password is \"(.*)\"")]
@@ -71,6 +72,7 @@ public class SignInStepDefinitions
     {
         ArgumentNullException.ThrowIfNull(_pageObject);
         _pageObject.EnterPassword(password);
+        Thread.Sleep(100);
     }
 
     [When("the login is submitted")]
@@ -96,5 +98,7 @@ public class SignInStepDefinitions
 
         var elements = _driver.FindElements(By.Id("login-error-box"));
         Assert.NotNull(elements.Single());
+
+        Thread.Sleep(1000);
     }
 }
