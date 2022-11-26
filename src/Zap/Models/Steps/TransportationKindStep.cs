@@ -29,6 +29,6 @@ public class TransportationKindStep : FlowchartStepBase
     private FlowchartStepBase NonMedicalAction()
     {
         UserResponseText = "Non-medical transportation";
-        return new TransportationLeafStep(TransportationLeafStep.Provider.AngelCaret);
+        return new TransportationLeafStep(TransportationLeafStep.Provider.AngelCare);
     }
 }

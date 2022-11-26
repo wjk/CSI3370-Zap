@@ -6,7 +6,7 @@ public class TransportationLeafStep : FlowchartStepBase
     {
         MyRide2,
         TransMedicare,
-        AngelCaret
+        AngelCare
     }
 
     public TransportationLeafStep(Provider provider)
@@ -33,7 +33,7 @@ public class TransportationLeafStep : FlowchartStepBase
                                           "or call the number on the page and set up a time and date for " +
                                           "your medical transportation.",
                 
-                Provider.AngelCaret => "For non-medical transportation services in the counties of South-" +
+                Provider.AngelCare => "For non-medical transportation services in the counties of South-" +
                                        "eastern Michigan. Fill out the form with the required information to " +
                                        "schedule a pickup time and date.",
                 
@@ -54,17 +54,17 @@ public class TransportationLeafStep : FlowchartStepBase
             {
                 case Provider.MyRide2:
                     title = "MyRide2";
-                    href = "https://wwwm.myride2.com/";
+                    href = "https://www.myride2.com/";
                     break;
                 
                 case Provider.TransMedicare:
-                    title = "TransMedicare";
-                    href = "https://trans-medicare.com/contact-us/";
+                    title = "MedicareTrans";
+                    href = "https://medicaretrans.com/schedule-pickup/";
                     break;
                 
-                case Provider.AngelCaret:
-                    title = "AngelCaret Transportation";
-                    href = "http://www.angelcarettransportation.com/non-medical-transportation-request-trip";
+                case Provider.AngelCare:
+                    title = "AngelCare Transportation";
+                    href = "http://www.angelcaretransport.com/non-medical-transportation-request-trip";
                     break;
                 
                 default:
