@@ -1,3 +1,3 @@
 # Zap
 
-For CSI 3370 at Oakland University, Fall 2023 semester.
+For CSI 3370 at Oakland University, Fall 2022 semester.
