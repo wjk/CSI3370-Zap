@@ -31,6 +31,9 @@ public class HomeController : Controller
 
     public IActionResult Chatbot()
     {
+        if (!_sessionAccess.IsSignedIn())
+            return Redirect("/Account/SignIn");
+        
         PrimaryModel model = new PrimaryModel(_flowchartContainer, _flowchartContainer.CreateNewStepStack());
         _sessionAccess.FlowchartKey = model.FlowchartKey;
         _flowchartContainer.PushStep(model.FlowchartKey, new WelcomeStep());
@@ -42,6 +45,9 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Chatbot(string actionName)
     {
+        if (!_sessionAccess.IsSignedIn())
+            return Redirect("/Account/SignIn");
+        
         PrimaryModel model = new PrimaryModel(_flowchartContainer, _sessionAccess.FlowchartKey);
 
         var lastStep = model.LastStep;
